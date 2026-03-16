@@ -1,16 +1,18 @@
+aid: red-hat-enterprise-linux-8
 name: Red Hat Enterprise Linux 8
 description: Red Hat Enterprise Linux 8 provides a stable, proven foundation for modern IT environments with enhanced security, performance, and management capabilities.
+type: Index
 image: https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/Logo-Red_Hat-Enterprise_Linux_8-B-Standard-RGB.png
+url: https://raw.githubusercontent.com/api-evangelist/red-hat-enterprise-linux-8/refs/heads/main/apis.yml
 tags:
-- Linux
-- Operating System
-- Enterprise
-- Red Hat
-- RHEL
+  - Linux
+  - Operating System
+  - Enterprise
+  - Red Hat
+  - RHEL
 created: '2024-01-15'
-modified: '2024-01-15'
-url: https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux
-specificationVersion: '0.18'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis:
 - name: RHEL 8 Subscription Management API
   description: API for managing Red Hat subscriptions, entitlements, and system registration
@@ -152,7 +154,6 @@ common:
 - type: Training
   url: https://www.redhat.com/en/services/training-and-certification
 maintainers:
-- name: Red Hat
-  email: support@redhat.com
-  url: https://www.redhat.com/
+  - FN: Kin Lane
+    email: kin@apievangelist.com
 include: []
