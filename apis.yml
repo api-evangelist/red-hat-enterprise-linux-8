@@ -1,9 +1,13 @@
 aid: red-hat-enterprise-linux-8
 name: Red Hat Enterprise Linux 8
-description: Red Hat Enterprise Linux 8 provides a stable, proven foundation for modern IT environments with enhanced security, performance, and management capabilities.
+description: Red Hat Enterprise Linux 8 provides a stable, proven foundation for
+  modern IT environments with enhanced security, performance, and management 
+  capabilities.
 type: Index
-image: https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/Logo-Red_Hat-Enterprise_Linux_8-B-Standard-RGB.png
-url: https://raw.githubusercontent.com/api-evangelist/red-hat-enterprise-linux-8/refs/heads/main/apis.yml
+image: 
+  https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/Logo-Red_Hat-Enterprise_Linux_8-B-Standard-RGB.png
+url: 
+  https://raw.githubusercontent.com/api-evangelist/red-hat-enterprise-linux-8/refs/heads/main/apis.yml
 tags:
   - Linux
   - Operating System
@@ -14,145 +18,170 @@ created: '2024-01-15'
 modified: '2026-03-16'
 specificationVersion: '0.19'
 apis:
-- name: RHEL 8 Subscription Management API
-  description: API for managing Red Hat subscriptions, entitlements, and system registration
-  image: https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/subscription-icon.png
-  humanURL: https://access.redhat.com/management/api
-  baseURL: https://api.access.redhat.com/management/v1
-  tags:
-  - Subscriptions
-  - Entitlements
-  - System Management
-  properties:
-  - type: Documentation
-    url: https://access.redhat.com/management/api/rhsm
-  - type: OpenAPI
-    url: https://api.access.redhat.com/management/v1/openapi.json
-  - type: Authentication
-    url: https://access.redhat.com/articles/3626371
-- name: RHEL 8 Insights API
-  description: Red Hat Insights API for predictive analytics, security vulnerabilities, and system health monitoring
-  image: https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/insights-icon.png
-  humanURL: https://console.redhat.com/docs/api/insights
-  baseURL: https://console.redhat.com/api/insights/v1
-  tags:
-  - Analytics
-  - Security
-  - Monitoring
-  - Vulnerabilities
-  properties:
-  - type: Documentation
-    url: https://console.redhat.com/docs/api/insights
-  - type: OpenAPI
-    url: https://console.redhat.com/api/insights/v1/openapi.json
-  - type: Console
-    url: https://console.redhat.com/insights
-- name: RHEL 8 Image Builder API
-  description: API for creating custom RHEL system images for cloud, virtual, and physical deployments
-  image: https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/image-builder-icon.png
-  humanURL: https://console.redhat.com/docs/api/image-builder
-  baseURL: https://console.redhat.com/api/image-builder/v1
-  tags:
-  - Image Builder
-  - Provisioning
-  - Cloud
-  - Deployment
-  properties:
-  - type: Documentation
-    url: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/composing_a_customized_rhel_system_image/index
-  - type: OpenAPI
-    url: https://console.redhat.com/api/image-builder/v1/openapi.json
-  - type: Tutorial
-    url: https://www.redhat.com/en/blog/using-red-hat-image-builder
-- name: RHEL 8 Package Management API
-  description: API for querying and managing RPM packages, repositories, and updates
-  image: https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/package-icon.png
-  humanURL: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_software_with_the_dnf_tool/index
-  baseURL: https://access.redhat.com/labs/
-  tags:
-  - Packages
-  - RPM
-  - DNF
-  - Updates
-  properties:
-  - type: Documentation
-    url: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_software_with_the_dnf_tool/index
-  - type: Command Reference
-    url: https://dnf.readthedocs.io/en/latest/api.html
-  - type: Labs
-    url: https://access.redhat.com/labs/
-- name: RHEL 8 Content Access API
-  description: API for accessing RHEL content, errata, CVEs, and security advisories
-  image: https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/security-icon.png
-  humanURL: https://access.redhat.com/documentation/en-us/red_hat_security_data_api/1.0
-  baseURL: https://access.redhat.com/labs/securitydataapi
-  tags:
-  - Security
-  - CVE
-  - Errata
-  - Advisories
-  properties:
-  - type: Documentation
-    url: https://access.redhat.com/documentation/en-us/red_hat_security_data_api/1.0/html/red_hat_security_data_api/index
-  - type: API Endpoint
-    url: https://access.redhat.com/labs/securitydataapi/
-  - type: Examples
-    url: https://access.redhat.com/articles/2915291
-- name: RHEL 8 Cockpit API
-  description: Web-based management interface API for system administration tasks
-  image: https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/cockpit-icon.png
-  humanURL: https://cockpit-project.org/guide/latest/api-base1.html
-  baseURL: https://localhost:9090/cockpit
-  tags:
-  - Web Console
-  - System Administration
-  - Management
-  - UI
-  properties:
-  - type: Documentation
-    url: https://cockpit-project.org/guide/latest/api-base1.html
-  - type: GitHub
-    url: https://github.com/cockpit-project/cockpit
-  - type: Guide
-    url: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_systems_using_the_rhel_8_web_console/index
-- name: RHEL 8 System Roles API
-  description: Ansible-based system configuration API for automating RHEL deployments
-  image: https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/ansible-icon.png
-  humanURL: https://access.redhat.com/articles/3050101
-  baseURL: https://console.redhat.com/ansible/automation-hub/
-  tags:
-  - Automation
-  - Ansible
-  - Configuration Management
-  - System Roles
-  properties:
-  - type: Documentation
-    url: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/administration_and_configuration_tasks_using_system_roles_in_rhel/index
-  - type: GitHub
-    url: https://github.com/linux-system-roles
-  - type: Ansible Galaxy
-    url: https://galaxy.ansible.com/linux-system-roles
+  - name: RHEL 8 Subscription Management API
+    description: >-
+      API for managing Red Hat subscriptions, entitlements, and system registration.
+    image: 
+      https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/subscription-icon.png
+    humanURL: https://access.redhat.com/management/api
+    baseURL: https://api.access.redhat.com/management/v1
+    tags:
+      - Subscriptions
+      - Entitlements
+      - System Management
+    properties:
+      - type: Documentation
+        url: https://access.redhat.com/management/api/rhsm
+      - type: OpenAPI
+        url: https://api.access.redhat.com/management/v1/openapi.json
+      - type: Authentication
+        url: https://access.redhat.com/articles/3626371
+  - name: RHEL 8 Insights API
+    description: >-
+      Red Hat Insights API for predictive analytics, security vulnerabilities, and
+      system health monitoring.
+    image: 
+      https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/insights-icon.png
+    humanURL: https://console.redhat.com/docs/api/insights
+    baseURL: https://console.redhat.com/api/insights/v1
+    tags:
+      - Analytics
+      - Security
+      - Monitoring
+      - Vulnerabilities
+    properties:
+      - type: Documentation
+        url: https://console.redhat.com/docs/api/insights
+      - type: OpenAPI
+        url: https://console.redhat.com/api/insights/v1/openapi.json
+      - type: Console
+        url: https://console.redhat.com/insights
+  - name: RHEL 8 Image Builder API
+    description: >-
+      API for creating custom RHEL system images for cloud, virtual, and physical
+      deployments.
+    image: 
+      https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/image-builder-icon.png
+    humanURL: https://console.redhat.com/docs/api/image-builder
+    baseURL: https://console.redhat.com/api/image-builder/v1
+    tags:
+      - Image Builder
+      - Provisioning
+      - Cloud
+      - Deployment
+    properties:
+      - type: Documentation
+        url: 
+          https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/composing_a_customized_rhel_system_image/index
+      - type: OpenAPI
+        url: https://console.redhat.com/api/image-builder/v1/openapi.json
+      - type: Tutorial
+        url: https://www.redhat.com/en/blog/using-red-hat-image-builder
+  - name: RHEL 8 Package Management API
+    description: >-
+      API for querying and managing RPM packages, repositories, and updates.
+    image: 
+      https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/package-icon.png
+    humanURL: 
+      https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_software_with_the_dnf_tool/index
+    baseURL: https://access.redhat.com/labs/
+    tags:
+      - Packages
+      - RPM
+      - DNF
+      - Updates
+    properties:
+      - type: Documentation
+        url: 
+          https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_software_with_the_dnf_tool/index
+      - type: Command Reference
+        url: https://dnf.readthedocs.io/en/latest/api.html
+      - type: Labs
+        url: https://access.redhat.com/labs/
+  - name: RHEL 8 Content Access API
+    description: >-
+      API for accessing RHEL content, errata, CVEs, and security advisories.
+    image: 
+      https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/security-icon.png
+    humanURL: 
+      https://access.redhat.com/documentation/en-us/red_hat_security_data_api/1.0
+    baseURL: https://access.redhat.com/labs/securitydataapi
+    tags:
+      - Security
+      - CVE
+      - Errata
+      - Advisories
+    properties:
+      - type: Documentation
+        url: 
+          https://access.redhat.com/documentation/en-us/red_hat_security_data_api/1.0/html/red_hat_security_data_api/index
+      - type: API Endpoint
+        url: https://access.redhat.com/labs/securitydataapi/
+      - type: Examples
+        url: https://access.redhat.com/articles/2915291
+  - name: RHEL 8 Cockpit API
+    description: >-
+      Web-based management interface API for system administration tasks.
+    image: 
+      https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/cockpit-icon.png
+    humanURL: https://cockpit-project.org/guide/latest/api-base1.html
+    baseURL: https://localhost:9090/cockpit
+    tags:
+      - Web Console
+      - System Administration
+      - Management
+      - UI
+    properties:
+      - type: Documentation
+        url: https://cockpit-project.org/guide/latest/api-base1.html
+      - type: GitHub
+        url: https://github.com/cockpit-project/cockpit
+      - type: Guide
+        url: 
+          https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_systems_using_the_rhel_8_web_console/index
+  - name: RHEL 8 System Roles API
+    description: >-
+      Ansible-based system configuration API for automating RHEL deployments.
+    image: 
+      https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/ansible-icon.png
+    humanURL: https://access.redhat.com/articles/3050101
+    baseURL: https://console.redhat.com/ansible/automation-hub/
+    tags:
+      - Automation
+      - Ansible
+      - Configuration Management
+      - System Roles
+    properties:
+      - type: Documentation
+        url: 
+          https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/administration_and_configuration_tasks_using_system_roles_in_rhel/index
+      - type: GitHub
+        url: https://github.com/linux-system-roles
+      - type: Ansible Galaxy
+        url: https://galaxy.ansible.com/linux-system-roles
 common:
-- type: Portal
-  url: https://access.redhat.com/
-- type: Customer Portal
-  url: https://console.redhat.com/
-- type: Documentation
-  url: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/
-- type: Knowledge Base
-  url: https://access.redhat.com/knowledgebase/
-- type: Support
-  url: https://access.redhat.com/support/
-- type: Downloads
-  url: https://access.redhat.com/downloads/
-- type: Blog
-  url: https://www.redhat.com/en/blog/channel/red-hat-enterprise-linux
-- type: Release Notes
-  url: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/8.0_release_notes/index
-- type: Security
-  url: https://access.redhat.com/security/
-- type: Training
-  url: https://www.redhat.com/en/services/training-and-certification
+  - type: Portal
+    url: https://access.redhat.com/
+  - type: Customer Portal
+    url: https://console.redhat.com/
+  - type: Documentation
+    url: 
+      https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/
+  - type: Knowledge Base
+    url: https://access.redhat.com/knowledgebase/
+  - type: Support
+    url: https://access.redhat.com/support/
+  - type: Downloads
+    url: https://access.redhat.com/downloads/
+  - type: Blog
+    url: https://www.redhat.com/en/blog/channel/red-hat-enterprise-linux
+  - type: Release Notes
+    url: 
+      https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/8.0_release_notes/index
+  - type: Security
+    url: https://access.redhat.com/security/
+  - type: Training
+    url: https://www.redhat.com/en/services/training-and-certification
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
