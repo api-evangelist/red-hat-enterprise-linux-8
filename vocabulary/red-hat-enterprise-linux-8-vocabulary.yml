@@ -1,0 +1,144 @@
+name: Red Hat Enterprise Linux 8 Vocabulary
+description: >-
+  Core vocabulary and terminology for Red Hat Enterprise Linux 8 including
+  security data, subscription management, system configuration, and API concepts.
+created: '2026-05-02'
+modified: '2026-05-02'
+terms:
+  - term: CVE
+    definition: >-
+      Common Vulnerability and Exposure. A unique identifier assigned to publicly
+      known security vulnerabilities. Red Hat tracks CVE impact on RHEL products
+      and provides remediation through errata advisories.
+    tags:
+      - Security
+      - Vulnerabilities
+
+  - term: RHSA
+    definition: >-
+      Red Hat Security Advisory. An official Red Hat announcement that patches a
+      security vulnerability in one or more Red Hat products. RHSAs include
+      severity ratings (Critical, Important, Moderate, Low).
+    tags:
+      - Advisories
+      - Security
+
+  - term: RHBA
+    definition: >-
+      Red Hat Bug Fix Advisory. An advisory that addresses one or more bugs in
+      Red Hat products without security implications.
+    tags:
+      - Advisories
+      - Patches
+
+  - term: RHEA
+    definition: >-
+      Red Hat Enhancement Advisory. An advisory that introduces new features or
+      enhancements to Red Hat products.
+    tags:
+      - Advisories
+      - Features
+
+  - term: Errata
+    definition: >-
+      Updates to Red Hat products distributed as RPM packages. Errata include
+      security fixes (RHSA), bug fixes (RHBA), and enhancements (RHEA).
+    tags:
+      - Patches
+      - Updates
+
+  - term: CVSS
+    definition: >-
+      Common Vulnerability Scoring System. A numerical score (0-10) indicating
+      the severity of a security vulnerability. CVSS v3 scores are preferred.
+    tags:
+      - Security
+      - Risk Assessment
+
+  - term: CWE
+    definition: >-
+      Common Weakness Enumeration. A community-developed list of software and
+      hardware weakness types. Used to categorize the root cause of CVEs.
+    tags:
+      - Security
+      - Classification
+
+  - term: OVAL
+    definition: >-
+      Open Vulnerability and Assessment Language. An XML-based standard for
+      expressing vulnerability definitions. Used with OpenSCAP for compliance scanning.
+    tags:
+      - Compliance
+      - Security Scanning
+
+  - term: CPE
+    definition: >-
+      Common Platform Enumeration. A standardized naming scheme for software,
+      operating systems, and hardware (e.g., cpe:/o:redhat:enterprise_linux:8).
+    tags:
+      - Identification
+      - Security
+
+  - term: Subscription
+    definition: >-
+      A Red Hat entitlement granting access to RHEL software, updates, and support.
+      Subscriptions are attached to systems via subscription-manager or RHSM API.
+    tags:
+      - Licensing
+      - Entitlements
+
+  - term: Insights
+    definition: >-
+      Red Hat Insights is a predictive analytics service for RHEL that identifies
+      vulnerabilities, compliance issues, and performance risks on registered systems.
+    tags:
+      - Analytics
+      - Monitoring
+
+  - term: Cockpit
+    definition: >-
+      A web-based system management interface for RHEL accessible at port 9090.
+      Provides browser-based access to storage, networking, services, and system logs.
+    tags:
+      - Management
+      - Web Console
+
+  - term: Image Builder
+    definition: >-
+      A Red Hat service for creating custom RHEL system images for cloud (AWS, Azure,
+      GCP), virtual machines, and bare metal targets with custom packages and configuration.
+    tags:
+      - Deployment
+      - Infrastructure
+
+  - term: System Profile
+    definition: >-
+      A structured set of facts about a registered RHEL system collected by Insights,
+      including OS version, hardware, installed packages, and enabled services.
+    tags:
+      - Inventory
+      - Monitoring
+
+  - term: SCAP
+    definition: >-
+      Security Content Automation Protocol. A framework for automated configuration
+      security assessment and compliance reporting using OVAL and XCCDF standards.
+    tags:
+      - Compliance
+      - Security
+
+  - term: STIG
+    definition: >-
+      Security Technical Implementation Guide. A configuration standard developed
+      by DISA for securing systems. RHEL provides STIG-compliant configuration profiles.
+    tags:
+      - Compliance
+      - Security
+
+  - term: System Role
+    definition: >-
+      An Ansible role for automating RHEL system configuration tasks such as
+      networking, storage, time sync, SELinux, certificates, and firewall management.
+    tags:
+      - Ansible
+      - Automation

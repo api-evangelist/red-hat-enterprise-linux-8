@@ -1,0 +1,127 @@
+extends: spectral:oas
+rules:
+  # RHEL API operations must have operation IDs
+  rhel-operation-id-required:
+    description: >-
+      All RHEL API operations must have an operationId to support SDK
+      generation, documentation generation, and tooling integration.
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: operationId
+      function: truthy
+
+  # Operation summaries use Title Case
+  rhel-summary-title-case:
+    description: >-
+      Operation summaries must use Title Case to match Red Hat documentation
+      standards.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][A-Za-z0-9 ,()-]+$"
+
+  # Operations require descriptions
+  rhel-operation-description:
+    description: >-
+      All operations must have a detailed description explaining the endpoint
+      purpose, parameters, and expected behavior.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: description
+      function: truthy
+
+  # Parameters need descriptions
+  rhel-parameter-description:
+    description: >-
+      All query and path parameters must have descriptions to help API
+      consumers understand accepted values.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].parameters[*]
+    then:
+      field: description
+      function: truthy
+
+  # Security schemes must be defined
+  rhel-security-defined:
+    description: >-
+      All RHEL Console APIs require authentication. Security schemes must
+      be defined in the components/securitySchemes section.
+    severity: error
+    given: $.components.securitySchemes
+    then:
+      function: truthy
+
+  # Responses should include success status codes
+  rhel-success-response:
+    description: >-
+      All operations must define at least one 2xx response to document
+      successful operation outcomes.
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch].responses
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+            - required: ['200']
+            - required: ['201']
+            - required: ['202']
+            - required: ['204']
+
+  # JSON content type for responses
+  rhel-json-response-type:
+    description: >-
+      RHEL API responses should use application/json content type
+      for consistent integration.
+    severity: warn
+    given: $.paths[*][get,post,put,patch].responses[200,201,202].content
+    then:
+      field: application/json
+      function: truthy
+
+  # CVE IDs should follow standard format
+  rhel-cve-format:
+    description: >-
+      CVE identifier parameters must follow the standard CVE-YYYY-NNNNN
+      format for compatibility with vulnerability databases.
+    severity: warn
+    given: $.paths[*][get].parameters[?(@.name === 'CVE')].schema
+    then:
+      field: pattern
+      function: truthy
+
+  # Pagination for list endpoints
+  rhel-list-pagination:
+    description: >-
+      List endpoints returning collections should support pagination
+      parameters (page, per_page) for handling large datasets.
+    severity: info
+    given: $.paths[*][get]
+    then:
+      function: truthy
+
+  # Contact information required in API info
+  rhel-contact-info:
+    description: >-
+      API info must include contact information with a URL pointing to
+      Red Hat support or documentation resources.
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+
+  # External docs should reference Red Hat documentation
+  rhel-external-docs:
+    description: >-
+      APIs should include externalDocs pointing to the official Red Hat
+      documentation for comprehensive integration guidance.
+    severity: info
+    given: $
+    then:
+      field: externalDocs
+      function: truthy

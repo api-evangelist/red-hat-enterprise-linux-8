@@ -1,0 +1,381 @@
+openapi: 3.1.0
+info:
+  title: Red Hat Security Data API
+  description: >-
+    The Red Hat Security Data API provides public access to Red Hat's security
+    advisory and CVE data. It enables operators to query CVEs affecting RHEL
+    products, retrieve CVSS scores, list security advisories (RHSA), bug fix
+    advisories (RHBA), and enhancement advisories (RHEA), and obtain OVAL XML
+    data for vulnerability scanning integration. No authentication is required
+    for public data access.
+  version: '1.0'
+  contact:
+    name: Red Hat Security
+    url: https://access.redhat.com/security/
+  termsOfService: https://www.redhat.com/en/about/agreements
+externalDocs:
+  description: Red Hat Security Data API Documentation
+  url: https://access.redhat.com/documentation/en-us/red_hat_security_data_api/1.0
+servers:
+  - url: https://access.redhat.com/labs/securitydataapi
+    description: Red Hat Security Data API
+tags:
+  - name: CVEs
+    description: Common Vulnerabilities and Exposures data for Red Hat products
+  - name: Advisories
+    description: Red Hat security, bug fix, and enhancement advisories
+  - name: OVAL
+    description: OVAL XML definitions for vulnerability scanning
+paths:
+  /cve.json:
+    get:
+      operationId: listCves
+      summary: List CVEs
+      description: >-
+        Returns a list of CVEs affecting Red Hat products. Supports filtering
+        by product, package, CVSS score range, severity, and date range.
+        Results are paginated.
+      tags:
+        - CVEs
+      parameters:
+        - name: before
+          in: query
+          description: Filter CVEs published before this date (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+        - name: after
+          in: query
+          description: Filter CVEs published after this date (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+        - name: ids_only
+          in: query
+          description: Return only CVE IDs instead of full objects
+          schema:
+            type: boolean
+            default: false
+        - name: bug
+          in: query
+          description: Filter by associated Bugzilla bug ID
+          schema:
+            type: string
+        - name: advisory
+          in: query
+          description: Filter by associated security advisory ID
+          schema:
+            type: string
+        - name: severity
+          in: query
+          description: Filter by severity level
+          schema:
+            type: string
+            enum:
+              - critical
+              - important
+              - moderate
+              - low
+        - name: package
+          in: query
+          description: Filter by affected package name
+          schema:
+            type: string
+        - name: product
+          in: query
+          description: Filter by affected product name
+          schema:
+            type: string
+        - name: cvss_score
+          in: query
+          description: Minimum CVSS score
+          schema:
+            type: number
+        - name: cvss3_score
+          in: query
+          description: Minimum CVSS v3 score
+          schema:
+            type: number
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: List of CVEs returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CveSummary'
+  /cve/{CVE}.json:
+    get:
+      operationId: getCve
+      summary: Get CVE Details
+      description: >-
+        Returns detailed information about a specific CVE including description,
+        CVSS scores, affected packages, associated advisories, and remediation
+        information for Red Hat products.
+      tags:
+        - CVEs
+      parameters:
+        - name: CVE
+          in: path
+          required: true
+          description: The CVE identifier (e.g., CVE-2024-12345)
+          schema:
+            type: string
+            pattern: '^CVE-\d{4}-\d+$'
+      responses:
+        '200':
+          description: CVE details returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CveDetail'
+        '404':
+          description: CVE not found
+  /advisory.json:
+    get:
+      operationId: listAdvisories
+      summary: List Security Advisories
+      description: >-
+        Returns a list of Red Hat security advisories (RHSA), bug fix advisories
+        (RHBA), and enhancement advisories (RHEA). Supports filtering by type,
+        severity, product, and date range.
+      tags:
+        - Advisories
+      parameters:
+        - name: before
+          in: query
+          description: Filter advisories issued before this date (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+        - name: after
+          in: query
+          description: Filter advisories issued after this date (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+        - name: type
+          in: query
+          description: Filter by advisory type
+          schema:
+            type: string
+            enum:
+              - RHSA
+              - RHBA
+              - RHEA
+        - name: severity
+          in: query
+          description: Filter by severity (RHSA only)
+          schema:
+            type: string
+            enum:
+              - Critical
+              - Important
+              - Moderate
+              - Low
+        - name: package
+          in: query
+          description: Filter by affected package name
+          schema:
+            type: string
+        - name: product
+          in: query
+          description: Filter by affected product
+          schema:
+            type: string
+        - name: cve
+          in: query
+          description: Filter by associated CVE ID
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: List of advisories returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdvisorySummary'
+  /advisory/{advisory}.json:
+    get:
+      operationId: getAdvisory
+      summary: Get Advisory Details
+      description: >-
+        Returns detailed information about a specific security advisory including
+        the description, affected packages, CVEs addressed, and the list of
+        updated packages.
+      tags:
+        - Advisories
+      parameters:
+        - name: advisory
+          in: path
+          required: true
+          description: The advisory ID (e.g., RHSA-2024:1234)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Advisory details returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdvisoryDetail'
+        '404':
+          description: Advisory not found
+  /oval/{product}.xml:
+    get:
+      operationId: getOvalDefinitions
+      summary: Get OVAL Definitions
+      description: >-
+        Returns OVAL XML definitions for vulnerability scanning of a specific
+        product. OVAL definitions can be used with OpenSCAP and other OVAL
+        scanners to assess vulnerability exposure on RHEL systems.
+      tags:
+        - OVAL
+      parameters:
+        - name: product
+          in: path
+          required: true
+          description: The product identifier (e.g., rhel8, rhel9)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OVAL XML definitions returned
+          content:
+            application/xml:
+              schema:
+                type: string
+                description: OVAL XML document
+        '404':
+          description: OVAL definitions not found for this product
+components:
+  schemas:
+    CveSummary:
+      type: object
+      properties:
+        CVE:
+          type: string
+          description: CVE identifier
+        severity:
+          type: string
+          enum:
+            - Critical
+            - Important
+            - Moderate
+            - Low
+        public_date:
+          type: string
+          format: date-time
+        bugzilla:
+          type: string
+          description: Associated Bugzilla URL
+        cvss_score:
+          type: number
+          description: CVSS v2 score
+        cvss3_score:
+          type: number
+          description: CVSS v3 score
+        cwe:
+          type: string
+          description: CWE identifier
+    CveDetail:
+      allOf:
+        - $ref: '#/components/schemas/CveSummary'
+        - type: object
+          properties:
+            bugzilla_description:
+              type: string
+            details:
+              type: array
+              items:
+                type: string
+            acknowledgement:
+              type: string
+            affected_release:
+              type: array
+              items:
+                type: object
+                properties:
+                  product_name:
+                    type: string
+                  release_date:
+                    type: string
+                  advisory:
+                    type: string
+                  package:
+                    type: string
+                  cpe:
+                    type: string
+    AdvisorySummary:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Advisory ID (e.g., RHSA-2024:1234)
+        title:
+          type: string
+        severity:
+          type: string
+        type:
+          type: string
+          enum:
+            - RHSA
+            - RHBA
+            - RHEA
+        issued:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        cves:
+          type: array
+          items:
+            type: string
+    AdvisoryDetail:
+      allOf:
+        - $ref: '#/components/schemas/AdvisorySummary'
+        - type: object
+          properties:
+            description:
+              type: string
+            solution:
+              type: string
+            references:
+              type: array
+              items:
+                type: string
+            packages:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  arch:
+                    type: string
+                  filename:
+                    type: string

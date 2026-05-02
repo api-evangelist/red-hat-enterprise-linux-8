@@ -1,0 +1,88 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "nvd": "https://nvd.nist.gov/vuln/detail/",
+    "rhel": "https://access.redhat.com/security/",
+    "CVE": {
+      "@id": "schema:Thing",
+      "@type": "schema:Thing"
+    },
+    "SecurityAdvisory": {
+      "@id": "schema:Article",
+      "@type": "schema:Article"
+    },
+    "SoftwarePackage": {
+      "@id": "schema:SoftwareApplication",
+      "@type": "schema:SoftwareApplication"
+    },
+    "id": "@id",
+    "name": "schema:name",
+    "description": "schema:description",
+    "CVE_id": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "severity": {
+      "@id": "schema:additionalProperty",
+      "@type": "xsd:string"
+    },
+    "cvss_score": {
+      "@id": "schema:ratingValue",
+      "@type": "xsd:decimal"
+    },
+    "cvss3_score": {
+      "@id": "schema:ratingValue",
+      "@type": "xsd:decimal"
+    },
+    "public_date": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:dateTime"
+    },
+    "updated": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "cwe": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "advisory_id": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "product_name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "package_name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "arch": {
+      "@id": "schema:processorRequirements",
+      "@type": "xsd:string"
+    },
+    "errata": {
+      "@id": "schema:Article",
+      "@type": "schema:Article"
+    },
+    "subscription": {
+      "@id": "schema:Offer",
+      "@type": "schema:Offer"
+    },
+    "system": {
+      "@id": "schema:ComputerLanguage",
+      "@type": "schema:ComputerLanguage"
+    },
+    "hostId": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "organization": {
+      "@id": "schema:Organization",
+      "@type": "schema:Organization"
+    }
+  }
+}
