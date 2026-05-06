@@ -4,131 +4,32 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Red Hat Enterprise Linux 8
 providerId: red-hat-enterprise-linux-8
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
-  - Enterprise
   - Linux
   - Operating System
-  - Red Hat
-  - RHEL
+  - Subscription
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Red Hat Enterprise Linux 8 API surface. Captures
-  per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values
-  to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
+description: RHEL 8 is an operating system distribution; it does not itself expose a rate-limited
+  customer API. The relevant rate-limited surfaces are Red Hat Customer Portal, Subscription
+  Management, and Insights APIs, which are managed at the Red Hat account level rather than per
+  RHEL release.
+sources:
+  - https://www.redhat.com/en/store/linux-platforms
+notes: RHEL itself is not an API; rate limits live on the surrounding Red Hat platform APIs and
+  are not separately published per-release.
+responseCodes: {}
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - RHEL 8 Subscription Management API
-      - RHEL 8 Insights API
-      - RHEL 8 Image Builder API
-      - RHEL 8 Patch Management API
-      - RHEL 8 Vulnerability Management API
-      - RHEL 8 Compliance API
-      - RHEL 8 Security Data API
-      - RHEL 8 Host Inventory API
-      - RHEL 8 Cockpit Web Console API
-      - RHEL 8 System Roles API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - RHEL 8 Subscription Management API
-      - RHEL 8 Insights API
-      - RHEL 8 Image Builder API
-      - RHEL 8 Patch Management API
-      - RHEL 8 Vulnerability Management API
-      - RHEL 8 Compliance API
-      - RHEL 8 Security Data API
-      - RHEL 8 Host Inventory API
-      - RHEL 8 Cockpit Web Console API
-      - RHEL 8 System Roles API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - RHEL 8 Subscription Management API
-      - RHEL 8 Insights API
-      - RHEL 8 Image Builder API
-      - RHEL 8 Patch Management API
-      - RHEL 8 Vulnerability Management API
-      - RHEL 8 Compliance API
-      - RHEL 8 Security Data API
-      - RHEL 8 Host Inventory API
-      - RHEL 8 Cockpit Web Console API
-      - RHEL 8 System Roles API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - RHEL 8 Subscription Management API
-      - RHEL 8 Insights API
-      - RHEL 8 Image Builder API
-      - RHEL 8 Patch Management API
-      - RHEL 8 Vulnerability Management API
-      - RHEL 8 Compliance API
-      - RHEL 8 Security Data API
-      - RHEL 8 Host Inventory API
-      - RHEL 8 Cockpit Web Console API
-      - RHEL 8 System Roles API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - RHEL 8 Subscription Management API
-      - RHEL 8 Insights API
-      - RHEL 8 Image Builder API
-      - RHEL 8 Patch Management API
-      - RHEL 8 Vulnerability Management API
-      - RHEL 8 Compliance API
-      - RHEL 8 Security Data API
-      - RHEL 8 Host Inventory API
-      - RHEL 8 Cockpit Web Console API
-      - RHEL 8 System Roles API
+  - name: Customer Portal / Subscription Management
+    scope: account
+    metric: varies
+    limit: 'managed at Red Hat account level; RHEL release does not publish its own API rate
+      limits'
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Account-level Enforcement
+    description: Subscription/Insights/Customer Portal API throttling is applied per Red Hat
+      account login; consumers should honor Retry-After when returned.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
