@@ -1,0 +1,405 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Red Hat Security Data API
+  description: The Red Hat Security Data API provides public access to Red Hat's security advisory and CVE data. It enables
+    operators to query CVEs affecting RHEL products, retrieve CVSS scores, list security advisories (RHSA), bug fix advisories
+    (RHBA), and enhancement advisories (RHEA), and obtain OVAL XML data for vulnerability scanning integration. No authentication
+    is required for public data access.
+  tags:
+  - Red
+  - Hat
+  - Enterprise
+  - Linux
+  - '8'
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: red-hat-enterprise-linux-8
+    baseUri: https://access.redhat.com/labs/securitydataapi
+    description: Red Hat Security Data API HTTP API.
+    resources:
+    - name: cve-json
+      path: /cve.json
+      operations:
+      - name: listcves
+        method: GET
+        description: List CVEs
+        inputParameters:
+        - name: before
+          in: query
+          type: string
+          description: Filter CVEs published before this date (YYYY-MM-DD)
+        - name: after
+          in: query
+          type: string
+          description: Filter CVEs published after this date (YYYY-MM-DD)
+        - name: ids_only
+          in: query
+          type: boolean
+          description: Return only CVE IDs instead of full objects
+        - name: bug
+          in: query
+          type: string
+          description: Filter by associated Bugzilla bug ID
+        - name: advisory
+          in: query
+          type: string
+          description: Filter by associated security advisory ID
+        - name: severity
+          in: query
+          type: string
+          description: Filter by severity level
+        - name: package
+          in: query
+          type: string
+          description: Filter by affected package name
+        - name: product
+          in: query
+          type: string
+          description: Filter by affected product name
+        - name: cvss_score
+          in: query
+          type: number
+          description: Minimum CVSS score
+        - name: cvss3_score
+          in: query
+          type: number
+          description: Minimum CVSS v3 score
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cve-cve-json
+      path: /cve/{CVE}.json
+      operations:
+      - name: getcve
+        method: GET
+        description: Get CVE Details
+        inputParameters:
+        - name: CVE
+          in: path
+          type: string
+          required: true
+          description: The CVE identifier (e.g., CVE-2024-12345)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: advisory-json
+      path: /advisory.json
+      operations:
+      - name: listadvisories
+        method: GET
+        description: List Security Advisories
+        inputParameters:
+        - name: before
+          in: query
+          type: string
+          description: Filter advisories issued before this date (YYYY-MM-DD)
+        - name: after
+          in: query
+          type: string
+          description: Filter advisories issued after this date (YYYY-MM-DD)
+        - name: type
+          in: query
+          type: string
+          description: Filter by advisory type
+        - name: severity
+          in: query
+          type: string
+          description: Filter by severity (RHSA only)
+        - name: package
+          in: query
+          type: string
+          description: Filter by affected package name
+        - name: product
+          in: query
+          type: string
+          description: Filter by affected product
+        - name: cve
+          in: query
+          type: string
+          description: Filter by associated CVE ID
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: advisory-advisory-json
+      path: /advisory/{advisory}.json
+      operations:
+      - name: getadvisory
+        method: GET
+        description: Get Advisory Details
+        inputParameters:
+        - name: advisory
+          in: path
+          type: string
+          required: true
+          description: The advisory ID (e.g., RHSA-2024:1234)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: oval-product-xml
+      path: /oval/{product}.xml
+      operations:
+      - name: getovaldefinitions
+        method: GET
+        description: Get OVAL Definitions
+        inputParameters:
+        - name: product
+          in: path
+          type: string
+          required: true
+          description: The product identifier (e.g., rhel8, rhel9)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: red-hat-enterprise-linux-8-rest
+    description: REST adapter for Red Hat Security Data API.
+    resources:
+    - path: /cve.json
+      name: listcves
+      operations:
+      - method: GET
+        name: listcves
+        description: List CVEs
+        call: red-hat-enterprise-linux-8.listcves
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /cve/{CVE}.json
+      name: getcve
+      operations:
+      - method: GET
+        name: getcve
+        description: Get CVE Details
+        call: red-hat-enterprise-linux-8.getcve
+        with:
+          CVE: rest.CVE
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /advisory.json
+      name: listadvisories
+      operations:
+      - method: GET
+        name: listadvisories
+        description: List Security Advisories
+        call: red-hat-enterprise-linux-8.listadvisories
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /advisory/{advisory}.json
+      name: getadvisory
+      operations:
+      - method: GET
+        name: getadvisory
+        description: Get Advisory Details
+        call: red-hat-enterprise-linux-8.getadvisory
+        with:
+          advisory: rest.advisory
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /oval/{product}.xml
+      name: getovaldefinitions
+      operations:
+      - method: GET
+        name: getovaldefinitions
+        description: Get OVAL Definitions
+        call: red-hat-enterprise-linux-8.getovaldefinitions
+        with:
+          product: rest.product
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: red-hat-enterprise-linux-8-mcp
+    transport: http
+    description: MCP adapter for Red Hat Security Data API for AI agent use.
+    tools:
+    - name: listcves
+      description: List CVEs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: red-hat-enterprise-linux-8.listcves
+      with:
+        before: tools.before
+        after: tools.after
+        ids_only: tools.ids_only
+        bug: tools.bug
+        advisory: tools.advisory
+        severity: tools.severity
+        package: tools.package
+        product: tools.product
+        cvss_score: tools.cvss_score
+        cvss3_score: tools.cvss3_score
+        page: tools.page
+        per_page: tools.per_page
+      inputParameters:
+      - name: before
+        type: string
+        description: Filter CVEs published before this date (YYYY-MM-DD)
+      - name: after
+        type: string
+        description: Filter CVEs published after this date (YYYY-MM-DD)
+      - name: ids_only
+        type: boolean
+        description: Return only CVE IDs instead of full objects
+      - name: bug
+        type: string
+        description: Filter by associated Bugzilla bug ID
+      - name: advisory
+        type: string
+        description: Filter by associated security advisory ID
+      - name: severity
+        type: string
+        description: Filter by severity level
+      - name: package
+        type: string
+        description: Filter by affected package name
+      - name: product
+        type: string
+        description: Filter by affected product name
+      - name: cvss_score
+        type: number
+        description: Minimum CVSS score
+      - name: cvss3_score
+        type: number
+        description: Minimum CVSS v3 score
+      - name: page
+        type: integer
+        description: page
+      - name: per_page
+        type: integer
+        description: per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcve
+      description: Get CVE Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: red-hat-enterprise-linux-8.getcve
+      with:
+        CVE: tools.CVE
+      inputParameters:
+      - name: CVE
+        type: string
+        description: The CVE identifier (e.g., CVE-2024-12345)
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listadvisories
+      description: List Security Advisories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: red-hat-enterprise-linux-8.listadvisories
+      with:
+        before: tools.before
+        after: tools.after
+        type: tools.type
+        severity: tools.severity
+        package: tools.package
+        product: tools.product
+        cve: tools.cve
+        page: tools.page
+        per_page: tools.per_page
+      inputParameters:
+      - name: before
+        type: string
+        description: Filter advisories issued before this date (YYYY-MM-DD)
+      - name: after
+        type: string
+        description: Filter advisories issued after this date (YYYY-MM-DD)
+      - name: type
+        type: string
+        description: Filter by advisory type
+      - name: severity
+        type: string
+        description: Filter by severity (RHSA only)
+      - name: package
+        type: string
+        description: Filter by affected package name
+      - name: product
+        type: string
+        description: Filter by affected product
+      - name: cve
+        type: string
+        description: Filter by associated CVE ID
+      - name: page
+        type: integer
+        description: page
+      - name: per_page
+        type: integer
+        description: per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getadvisory
+      description: Get Advisory Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: red-hat-enterprise-linux-8.getadvisory
+      with:
+        advisory: tools.advisory
+      inputParameters:
+      - name: advisory
+        type: string
+        description: The advisory ID (e.g., RHSA-2024:1234)
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getovaldefinitions
+      description: Get OVAL Definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: red-hat-enterprise-linux-8.getovaldefinitions
+      with:
+        product: tools.product
+      inputParameters:
+      - name: product
+        type: string
+        description: The product identifier (e.g., rhel8, rhel9)
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
