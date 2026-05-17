@@ -269,17 +269,17 @@ common:
     url: https://access.redhat.com/downloads/
   - type: Blog
     url: https://www.redhat.com/en/blog/channel/red-hat-enterprise-linux
-  - type: Release Notes
+  - type: ReleaseNotes
     url: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/8.0_release_notes/index
   - type: Security
     url: https://access.redhat.com/security/
   - type: Training
     url: https://www.redhat.com/en/services/training-and-certification
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/redhat-developer
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.redhat.com/en/about/privacy-policy
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.redhat.com/en/about/agreements
   - type: OpenAPI
     url: openapi/red-hat-enterprise-linux-8-security-data-openapi.yml
