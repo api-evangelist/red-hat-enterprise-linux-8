@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CveDetail",
+  "title": "CveDetail",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CveSummary"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "bugzilla_description": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "acknowledgement": {
+          "type": "string"
+        },
+        "affected_release": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "product_name": {
+                "type": "string"
+              },
+              "release_date": {
+                "type": "string"
+              },
+              "advisory": {
+                "type": "string"
+              },
+              "package": {
+                "type": "string"
+              },
+              "cpe": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

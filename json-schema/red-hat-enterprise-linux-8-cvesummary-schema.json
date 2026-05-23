@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CveSummary",
+  "title": "CveSummary",
+  "type": "object",
+  "properties": {
+    "CVE": {
+      "type": "string",
+      "description": "CVE identifier"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "Critical",
+        "Important",
+        "Moderate",
+        "Low"
+      ]
+    },
+    "public_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "bugzilla": {
+      "type": "string",
+      "description": "Associated Bugzilla URL"
+    },
+    "cvss_score": {
+      "type": "number",
+      "description": "CVSS v2 score"
+    },
+    "cvss3_score": {
+      "type": "number",
+      "description": "CVSS v3 score"
+    },
+    "cwe": {
+      "type": "string",
+      "description": "CWE identifier"
+    }
+  }
+}

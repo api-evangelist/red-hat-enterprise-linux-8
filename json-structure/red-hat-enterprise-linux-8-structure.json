@@ -1,0 +1,81 @@
+{
+  "provider": "Red Hat Enterprise Linux 8",
+  "providerId": "red-hat-enterprise-linux-8",
+  "kind": "json-structure",
+  "description": "Structural overview of the Red Hat Enterprise Linux 8 API surface; extracted from openapi/.",
+  "schemaCount": 4,
+  "operationCount": 5,
+  "schemas": [
+    {
+      "name": "CveSummary",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "CveDetail",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AdvisorySummary",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "AdvisoryDetail",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/cve.json",
+      "operationId": "listCves",
+      "summary": "List CVEs",
+      "tags": [
+        "CVEs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/cve/{CVE}.json",
+      "operationId": "getCve",
+      "summary": "Get CVE Details",
+      "tags": [
+        "CVEs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/advisory.json",
+      "operationId": "listAdvisories",
+      "summary": "List Security Advisories",
+      "tags": [
+        "Advisories"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/advisory/{advisory}.json",
+      "operationId": "getAdvisory",
+      "summary": "Get Advisory Details",
+      "tags": [
+        "Advisories"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/oval/{product}.xml",
+      "operationId": "getOvalDefinitions",
+      "summary": "Get OVAL Definitions",
+      "tags": [
+        "OVAL"
+      ]
+    }
+  ]
+}
