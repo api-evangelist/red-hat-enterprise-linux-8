@@ -1,0 +1,740 @@
+{
+  "item": [
+    {
+      "id": "32181391-6a91-4927-ac40-a4b53a91b43d",
+      "name": "CVEs",
+      "description": {
+        "content": "Common Vulnerabilities and Exposures data for Red Hat products",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "af88d673-dc54-4df9-851f-868a7c32121f",
+          "name": "List CVEs",
+          "request": {
+            "name": "List CVEs",
+            "description": {
+              "content": "Returns a list of CVEs affecting Red Hat products. Supports filtering by product, package, CVSS score range, severity, and date range. Results are paginated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cve.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<date>",
+                  "description": "Filter CVEs published before this date (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<date>",
+                  "description": "Filter CVEs published after this date (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids_only",
+                  "value": "false",
+                  "description": "Return only CVE IDs instead of full objects"
+                },
+                {
+                  "disabled": false,
+                  "key": "bug",
+                  "value": "<string>",
+                  "description": "Filter by associated Bugzilla bug ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "advisory",
+                  "value": "<string>",
+                  "description": "Filter by associated security advisory ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "severity",
+                  "value": "<string>",
+                  "description": "Filter by severity level"
+                },
+                {
+                  "disabled": false,
+                  "key": "package",
+                  "value": "<string>",
+                  "description": "Filter by affected package name"
+                },
+                {
+                  "disabled": false,
+                  "key": "product",
+                  "value": "<string>",
+                  "description": "Filter by affected product name"
+                },
+                {
+                  "disabled": false,
+                  "key": "cvss_score",
+                  "value": "<number>",
+                  "description": "Minimum CVSS score"
+                },
+                {
+                  "disabled": false,
+                  "key": "cvss3_score",
+                  "value": "<number>",
+                  "description": "Minimum CVSS v3 score"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee74af9f-2270-4a2f-a680-666e062953e4",
+              "name": "List of CVEs returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cve.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "before",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "ids_only",
+                      "value": "false"
+                    },
+                    {
+                      "key": "bug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "advisory",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "severity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "package",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "product",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cvss_score",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "cvss3_score",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"CVE\": \"string\",\n    \"severity\": \"Moderate\",\n    \"public_date\": \"1955-03-30T19:39:41.386Z\",\n    \"bugzilla\": \"string\",\n    \"cvss_score\": 7891.481911805366,\n    \"cvss3_score\": 7405.388942154778,\n    \"cwe\": \"string\"\n  },\n  {\n    \"CVE\": \"string\",\n    \"severity\": \"Low\",\n    \"public_date\": \"1984-11-20T16:00:22.526Z\",\n    \"bugzilla\": \"string\",\n    \"cvss_score\": 5668.568710545718,\n    \"cvss3_score\": 2659.0430266827902,\n    \"cwe\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16770817-905d-48a8-a5f6-18d22b6aed14",
+          "name": "Get CVE Details",
+          "request": {
+            "name": "Get CVE Details",
+            "description": {
+              "content": "Returns detailed information about a specific CVE including description, CVSS scores, affected packages, associated advisories, and remediation information for Red Hat products.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cve",
+                "{{CVE}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b1e6f69-6393-4b17-bbcd-a3c0eed84dc4",
+              "name": "CVE details returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cve",
+                    "{{CVE}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"CVE\": \"string\",\n  \"severity\": \"Moderate\",\n  \"public_date\": \"1963-08-06T21:11:49.321Z\",\n  \"bugzilla\": \"string\",\n  \"cvss_score\": 5801.79509693762,\n  \"cvss3_score\": 6513.791022846962,\n  \"cwe\": \"string\",\n  \"bugzilla_description\": \"string\",\n  \"details\": [\n    \"string\",\n    \"string\"\n  ],\n  \"acknowledgement\": \"string\",\n  \"affected_release\": [\n    {\n      \"product_name\": \"string\",\n      \"release_date\": \"string\",\n      \"advisory\": \"string\",\n      \"package\": \"string\",\n      \"cpe\": \"string\"\n    },\n    {\n      \"product_name\": \"string\",\n      \"release_date\": \"string\",\n      \"advisory\": \"string\",\n      \"package\": \"string\",\n      \"cpe\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ec4ff33-b5aa-4ae5-b779-e75cc67421ba",
+              "name": "CVE not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cve",
+                    "{{CVE}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b08ebfd8-5de5-4d06-8b5d-1d8642abf3bf",
+      "name": "Advisories",
+      "description": {
+        "content": "Red Hat security, bug fix, and enhancement advisories",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c7bc83cf-8e0b-497d-a744-189f6650de8a",
+          "name": "List Security Advisories",
+          "request": {
+            "name": "List Security Advisories",
+            "description": {
+              "content": "Returns a list of Red Hat security advisories (RHSA), bug fix advisories (RHBA), and enhancement advisories (RHEA). Supports filtering by type, severity, product, and date range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "advisory.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<date>",
+                  "description": "Filter advisories issued before this date (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<date>",
+                  "description": "Filter advisories issued after this date (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by advisory type"
+                },
+                {
+                  "disabled": false,
+                  "key": "severity",
+                  "value": "<string>",
+                  "description": "Filter by severity (RHSA only)"
+                },
+                {
+                  "disabled": false,
+                  "key": "package",
+                  "value": "<string>",
+                  "description": "Filter by affected package name"
+                },
+                {
+                  "disabled": false,
+                  "key": "product",
+                  "value": "<string>",
+                  "description": "Filter by affected product"
+                },
+                {
+                  "disabled": false,
+                  "key": "cve",
+                  "value": "<string>",
+                  "description": "Filter by associated CVE ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d8312d8-145f-4686-a96f-fddb9f1e198c",
+              "name": "List of advisories returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisory.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "before",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "severity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "package",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "product",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cve",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"severity\": \"string\",\n    \"type\": \"RHBA\",\n    \"issued\": \"1949-07-10T15:26:02.295Z\",\n    \"updated\": \"2013-07-20T22:44:00.307Z\",\n    \"cves\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"severity\": \"string\",\n    \"type\": \"RHBA\",\n    \"issued\": \"1988-02-20T21:40:24.414Z\",\n    \"updated\": \"2026-01-15T22:25:14.722Z\",\n    \"cves\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "140adb16-8e86-48b9-921f-d67718cbb813",
+          "name": "Get Advisory Details",
+          "request": {
+            "name": "Get Advisory Details",
+            "description": {
+              "content": "Returns detailed information about a specific security advisory including the description, affected packages, CVEs addressed, and the list of updated packages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "advisory",
+                "{{advisory}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f6a405b2-b2bc-45bc-85c2-1086d81b1368",
+              "name": "Advisory details returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisory",
+                    "{{advisory}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"severity\": \"string\",\n  \"type\": \"RHEA\",\n  \"issued\": \"1975-11-25T09:17:18.100Z\",\n  \"updated\": \"1980-12-18T03:05:31.737Z\",\n  \"cves\": [\n    \"string\",\n    \"string\"\n  ],\n  \"description\": \"string\",\n  \"solution\": \"string\",\n  \"references\": [\n    \"string\",\n    \"string\"\n  ],\n  \"packages\": [\n    {\n      \"name\": \"string\",\n      \"arch\": \"string\",\n      \"filename\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"arch\": \"string\",\n      \"filename\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f538a486-b85a-4a79-a66a-766408732bb1",
+              "name": "Advisory not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisory",
+                    "{{advisory}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5006f011-29f9-4dff-a930-55862cac50cd",
+      "name": "OVAL",
+      "description": {
+        "content": "OVAL XML definitions for vulnerability scanning",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "52849a20-7f0c-4c30-95ad-0e704794e6d2",
+          "name": "Get OVAL Definitions",
+          "request": {
+            "name": "Get OVAL Definitions",
+            "description": {
+              "content": "Returns OVAL XML definitions for vulnerability scanning of a specific product. OVAL definitions can be used with OpenSCAP and other OVAL scanners to assess vulnerability exposure on RHEL systems.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oval",
+                "{{product}}.xml"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "584d95a8-6b3d-4338-8053-9117b835cc62",
+              "name": "OVAL XML definitions returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oval",
+                    "{{product}}.xml"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "1ad74691-419c-45ae-9ab0-a7091698a241",
+              "name": "OVAL definitions not found for this product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oval",
+                    "{{product}}.xml"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://access.redhat.com/labs/securitydataapi",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The product identifier (e.g., rhel8, rhel9)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "product"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The advisory ID (e.g., RHSA-2024:1234)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "advisory"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The CVE identifier (e.g., CVE-2024-12345)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "CVE"
+    }
+  ],
+  "info": {
+    "_postman_id": "4107192c-4bfb-4734-a10c-66b1884601de",
+    "name": "Red Hat Security Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Red Hat Security Data API provides public access to Red Hat's security advisory and CVE data. It enables operators to query CVEs affecting RHEL products, retrieve CVSS scores, list security advisories (RHSA), bug fix advisories (RHBA), and enhancement advisories (RHEA), and obtain OVAL XML data for vulnerability scanning integration. No authentication is required for public data access.\n\nContact Support:\n Name: Red Hat Security",
+      "type": "text/plain"
+    }
+  }
+}
