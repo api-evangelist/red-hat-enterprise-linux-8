@@ -7,7 +7,7 @@ description: >-
   interfaces including Insights, Image Builder, and Cockpit. These APIs enable automated provisioning, configuration,
   security scanning, patch management, and compliance reporting for RHEL deployments at scale.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Enterprise
   - Linux
