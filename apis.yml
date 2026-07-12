@@ -229,6 +229,12 @@ apis:
       - type: Ansible Galaxy
         url: https://galaxy.ansible.com/linux-system-roles
 common:
+  - type: TrustCenter
+    url: security/red-hat-enterprise-linux-8-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/red-hat-enterprise-linux-8-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/red-hat-enterprise-linux-8-domain-security.yml
   - type: Portal
     url: https://access.redhat.com/
   - type: Customer Portal

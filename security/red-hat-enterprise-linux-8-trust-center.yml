@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://access.redhat.com/compliance
+url: https://access.redhat.com/compliance
+certifications:
+- ISO 27001
+- ISO 27018
+- HIPAA
+evidence:
+- source: https://access.redhat.com/compliance
+  keywords:
+  - iso/iec 27001
+  - hipaa
