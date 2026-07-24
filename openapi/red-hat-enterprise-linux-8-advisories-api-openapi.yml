@@ -1,0 +1,167 @@
+openapi: 3.1.0
+info:
+  title: Red Hat Security Data Advisories API
+  description: The Red Hat Security Data API provides public access to Red Hat's security advisory and CVE data. It enables operators to query CVEs affecting RHEL products, retrieve CVSS scores, list security advisories (RHSA), bug fix advisories (RHBA), and enhancement advisories (RHEA), and obtain OVAL XML data for vulnerability scanning integration. No authentication is required for public data access.
+  version: '1.0'
+  contact:
+    name: Red Hat Security
+    url: https://access.redhat.com/security/
+  termsOfService: https://www.redhat.com/en/about/agreements
+servers:
+- url: https://access.redhat.com/labs/securitydataapi
+  description: Red Hat Security Data API
+tags:
+- name: Advisories
+  description: Red Hat security, bug fix, and enhancement advisories
+paths:
+  /advisory.json:
+    get:
+      operationId: listAdvisories
+      summary: List Security Advisories
+      description: Returns a list of Red Hat security advisories (RHSA), bug fix advisories (RHBA), and enhancement advisories (RHEA). Supports filtering by type, severity, product, and date range.
+      tags:
+      - Advisories
+      parameters:
+      - name: before
+        in: query
+        description: Filter advisories issued before this date (YYYY-MM-DD)
+        schema:
+          type: string
+          format: date
+      - name: after
+        in: query
+        description: Filter advisories issued after this date (YYYY-MM-DD)
+        schema:
+          type: string
+          format: date
+      - name: type
+        in: query
+        description: Filter by advisory type
+        schema:
+          type: string
+          enum:
+          - RHSA
+          - RHBA
+          - RHEA
+      - name: severity
+        in: query
+        description: Filter by severity (RHSA only)
+        schema:
+          type: string
+          enum:
+          - Critical
+          - Important
+          - Moderate
+          - Low
+      - name: package
+        in: query
+        description: Filter by affected package name
+        schema:
+          type: string
+      - name: product
+        in: query
+        description: Filter by affected product
+        schema:
+          type: string
+      - name: cve
+        in: query
+        description: Filter by associated CVE ID
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          default: 20
+      responses:
+        '200':
+          description: List of advisories returned
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdvisorySummary'
+  /advisory/{advisory}.json:
+    get:
+      operationId: getAdvisory
+      summary: Get Advisory Details
+      description: Returns detailed information about a specific security advisory including the description, affected packages, CVEs addressed, and the list of updated packages.
+      tags:
+      - Advisories
+      parameters:
+      - name: advisory
+        in: path
+        required: true
+        description: The advisory ID (e.g., RHSA-2024:1234)
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Advisory details returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdvisoryDetail'
+        '404':
+          description: Advisory not found
+components:
+  schemas:
+    AdvisorySummary:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Advisory ID (e.g., RHSA-2024:1234)
+        title:
+          type: string
+        severity:
+          type: string
+        type:
+          type: string
+          enum:
+          - RHSA
+          - RHBA
+          - RHEA
+        issued:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        cves:
+          type: array
+          items:
+            type: string
+    AdvisoryDetail:
+      allOf:
+      - $ref: '#/components/schemas/AdvisorySummary'
+      - type: object
+        properties:
+          description:
+            type: string
+          solution:
+            type: string
+          references:
+            type: array
+            items:
+              type: string
+          packages:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                arch:
+                  type: string
+                filename:
+                  type: string
+externalDocs:
+  description: Red Hat Security Data API Documentation
+  url: https://access.redhat.com/documentation/en-us/red_hat_security_data_api/1.0

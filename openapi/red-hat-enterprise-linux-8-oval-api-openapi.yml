@@ -1,0 +1,43 @@
+openapi: 3.1.0
+info:
+  title: Red Hat Security Data Advisories OVAL API
+  description: The Red Hat Security Data API provides public access to Red Hat's security advisory and CVE data. It enables operators to query CVEs affecting RHEL products, retrieve CVSS scores, list security advisories (RHSA), bug fix advisories (RHBA), and enhancement advisories (RHEA), and obtain OVAL XML data for vulnerability scanning integration. No authentication is required for public data access.
+  version: '1.0'
+  contact:
+    name: Red Hat Security
+    url: https://access.redhat.com/security/
+  termsOfService: https://www.redhat.com/en/about/agreements
+servers:
+- url: https://access.redhat.com/labs/securitydataapi
+  description: Red Hat Security Data API
+tags:
+- name: OVAL
+  description: OVAL XML definitions for vulnerability scanning
+paths:
+  /oval/{product}.xml:
+    get:
+      operationId: getOvalDefinitions
+      summary: Get OVAL Definitions
+      description: Returns OVAL XML definitions for vulnerability scanning of a specific product. OVAL definitions can be used with OpenSCAP and other OVAL scanners to assess vulnerability exposure on RHEL systems.
+      tags:
+      - OVAL
+      parameters:
+      - name: product
+        in: path
+        required: true
+        description: The product identifier (e.g., rhel8, rhel9)
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OVAL XML definitions returned
+          content:
+            application/xml:
+              schema:
+                type: string
+                description: OVAL XML document
+        '404':
+          description: OVAL definitions not found for this product
+externalDocs:
+  description: Red Hat Security Data API Documentation
+  url: https://access.redhat.com/documentation/en-us/red_hat_security_data_api/1.0
