@@ -1,0 +1,18 @@
+{
+  "provider": "red-hat-enterprise-linux-8",
+  "sources": [
+    "red-hat-enterprise-linux-8-advisories-api-openapi.yml",
+    "red-hat-enterprise-linux-8-cves-api-openapi.yml",
+    "red-hat-enterprise-linux-8-oval-api-openapi.yml"
+  ],
+  "outputs": [
+    "red-hat-enterprise-linux-8-advisories-api-openapi.yml",
+    "red-hat-enterprise-linux-8-cves-api-openapi.yml",
+    "red-hat-enterprise-linux-8-oval-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
