@@ -28,7 +28,7 @@ tags:
   - RHEL
 url: https://raw.githubusercontent.com/api-evangelist/red-hat-enterprise-linux-8/refs/heads/main/apis.yml
 created: '2024-01-15'
-modified: '2026-05-19'
+modified: '2026-08-06'
 specificationVersion: '0.19'
 apis:
 - aid: red-hat-enterprise-linux-8:cockpit-api
@@ -190,6 +190,12 @@ apis:
   - type: Documentation
     url: https://console.redhat.com/docs/api/inventory
 common:
+  - type: MCPServer
+    name: MCP Server for Red Hat Enterprise Linux
+    url: https://github.com/rhel-lightspeed/linux-mcp-server
+  - type: MCPDocumentation
+    name: RHEL MCP Server Documentation
+    url: https://rhel-lightspeed.github.io/linux-mcp-server/
   - type: AgenticAccess
     url: agentic-access/red-hat-enterprise-linux-8-agentic-access.yml
   - type: TrustCenter
