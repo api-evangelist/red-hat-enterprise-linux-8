@@ -231,7 +231,7 @@ common:
   - type: TermsOfService
     url: https://www.redhat.com/en/about/agreements
   - type: OpenAPI
-    url: openapi/red-hat-enterprise-linux-8-security-data-openapi.yml
+    url: openapi/_original/red-hat-enterprise-linux-8-security-data-openapi.yml
   - type: JSONLDContext
     url: json-ld/red-hat-enterprise-linux-8-context.jsonld
   - type: JSONSchema
