@@ -1,0 +1,304 @@
+{
+  "item": [
+    {
+      "id": "7165ae80-5ee4-4739-98fa-c617fe2dfd1d",
+      "name": "Advisories",
+      "description": {
+        "content": "Red Hat security, bug fix, and enhancement advisories",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3749741-f3c4-4d59-a04d-f7d0e5eb16b1",
+          "name": "List Security Advisories",
+          "request": {
+            "name": "List Security Advisories",
+            "description": {
+              "content": "Returns a list of Red Hat security advisories (RHSA), bug fix advisories (RHBA), and enhancement advisories (RHEA). Supports filtering by type, severity, product, and date range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "advisory.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<date>",
+                  "description": "Filter advisories issued before this date (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<date>",
+                  "description": "Filter advisories issued after this date (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by advisory type"
+                },
+                {
+                  "disabled": false,
+                  "key": "severity",
+                  "value": "<string>",
+                  "description": "Filter by severity (RHSA only)"
+                },
+                {
+                  "disabled": false,
+                  "key": "package",
+                  "value": "<string>",
+                  "description": "Filter by affected package name"
+                },
+                {
+                  "disabled": false,
+                  "key": "product",
+                  "value": "<string>",
+                  "description": "Filter by affected product"
+                },
+                {
+                  "disabled": false,
+                  "key": "cve",
+                  "value": "<string>",
+                  "description": "Filter by associated CVE ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3645dd17-b4cf-47bb-a02e-9a8fa082901f",
+              "name": "List of advisories returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisory.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "before",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "severity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "package",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "product",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cve",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"severity\": \"string\",\n    \"type\": \"RHSA\",\n    \"issued\": \"1947-02-14T07:28:27.499Z\",\n    \"updated\": \"1969-10-18T05:26:35.940Z\",\n    \"cves\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"severity\": \"string\",\n    \"type\": \"RHBA\",\n    \"issued\": \"1990-10-30T10:12:45.282Z\",\n    \"updated\": \"2005-09-07T22:57:15.205Z\",\n    \"cves\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea4fc626-a8df-4581-baf3-00832511cf69",
+          "name": "Get Advisory Details",
+          "request": {
+            "name": "Get Advisory Details",
+            "description": {
+              "content": "Returns detailed information about a specific security advisory including the description, affected packages, CVEs addressed, and the list of updated packages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "advisory",
+                "{{advisory}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec7d312b-0eab-4f53-aaf4-7452d6ec8a83",
+              "name": "Advisory details returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisory",
+                    "{{advisory}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"severity\": \"string\",\n  \"type\": \"RHBA\",\n  \"issued\": \"1950-10-10T17:09:07.187Z\",\n  \"updated\": \"2019-08-21T05:32:46.639Z\",\n  \"cves\": [\n    \"string\",\n    \"string\"\n  ],\n  \"description\": \"string\",\n  \"solution\": \"string\",\n  \"references\": [\n    \"string\",\n    \"string\"\n  ],\n  \"packages\": [\n    {\n      \"name\": \"string\",\n      \"arch\": \"string\",\n      \"filename\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"arch\": \"string\",\n      \"filename\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38a775e2-0b47-4ea3-83bf-1ab236e5fb92",
+              "name": "Advisory not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisory",
+                    "{{advisory}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://access.redhat.com/labs/securitydataapi",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The advisory ID (e.g., RHSA-2024:1234)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "advisory"
+    }
+  ],
+  "info": {
+    "_postman_id": "95221b51-b558-4afe-98f9-51700a078008",
+    "name": "Red Hat Security Data Advisories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Red Hat Security Data API provides public access to Red Hat's security advisory and CVE data. It enables operators to query CVEs affecting RHEL products, retrieve CVSS scores, list security advisories (RHSA), bug fix advisories (RHBA), and enhancement advisories (RHEA), and obtain OVAL XML data for vulnerability scanning integration. No authentication is required for public data access.\n\nContact Support:\n Name: Red Hat Security",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "5c3f00e5-4541-482e-ac19-8b849a089ef7",
+      "name": "OVAL",
+      "description": {
+        "content": "OVAL XML definitions for vulnerability scanning",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "261c639b-8eb6-40ae-9ee2-369588ad6975",
+          "name": "Get OVAL Definitions",
+          "request": {
+            "name": "Get OVAL Definitions",
+            "description": {
+              "content": "Returns OVAL XML definitions for vulnerability scanning of a specific product. OVAL definitions can be used with OpenSCAP and other OVAL scanners to assess vulnerability exposure on RHEL systems.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oval",
+                "{{product}}.xml"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e04d8193-4a62-4bcd-b6f6-69dfe5e31bd7",
+              "name": "OVAL XML definitions returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oval",
+                    "{{product}}.xml"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "a0ff30cd-da86-4b0b-941d-35876aff3e41",
+              "name": "OVAL definitions not found for this product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oval",
+                    "{{product}}.xml"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://access.redhat.com/labs/securitydataapi",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The product identifier (e.g., rhel8, rhel9)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "product"
+    }
+  ],
+  "info": {
+    "_postman_id": "79304f01-c4ae-4fbd-b1f4-f93c46653f20",
+    "name": "Red Hat Security Data Advisories OVAL API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Red Hat Security Data API provides public access to Red Hat's security advisory and CVE data. It enables operators to query CVEs affecting RHEL products, retrieve CVSS scores, list security advisories (RHSA), bug fix advisories (RHBA), and enhancement advisories (RHEA), and obtain OVAL XML data for vulnerability scanning integration. No authentication is required for public data access.\n\nContact Support:\n Name: Red Hat Security",
+      "type": "text/plain"
+    }
+  }
+}

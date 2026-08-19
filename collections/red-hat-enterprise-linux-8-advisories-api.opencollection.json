@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Red Hat Security Data Advisories API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Advisories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Security Advisories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.redhat.com/labs/securitydataapi/advisory.json",
+            "params": [
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "Filter advisories issued before this date (YYYY-MM-DD)"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Filter advisories issued after this date (YYYY-MM-DD)"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by advisory type"
+              },
+              {
+                "name": "severity",
+                "value": "",
+                "type": "query",
+                "description": "Filter by severity (RHSA only)"
+              },
+              {
+                "name": "package",
+                "value": "",
+                "type": "query",
+                "description": "Filter by affected package name"
+              },
+              {
+                "name": "product",
+                "value": "",
+                "type": "query",
+                "description": "Filter by affected product"
+              },
+              {
+                "name": "cve",
+                "value": "",
+                "type": "query",
+                "description": "Filter by associated CVE ID"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of Red Hat security advisories (RHSA), bug fix advisories (RHBA), and enhancement advisories (RHEA). Supports filtering by type, severity, product, and date range."
+        },
+        {
+          "info": {
+            "name": "Get Advisory Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.redhat.com/labs/securitydataapi/advisory/:advisory.json",
+            "params": [
+              {
+                "name": "advisory",
+                "value": "",
+                "type": "path",
+                "description": "The advisory ID (e.g., RHSA-2024:1234)"
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific security advisory including the description, affected packages, CVEs addressed, and the list of updated packages."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

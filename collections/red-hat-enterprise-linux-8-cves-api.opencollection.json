@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Red Hat Security Data Advisories CVEs API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CVEs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List CVEs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.redhat.com/labs/securitydataapi/cve.json",
+            "params": [
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "Filter CVEs published before this date (YYYY-MM-DD)"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Filter CVEs published after this date (YYYY-MM-DD)"
+              },
+              {
+                "name": "ids_only",
+                "value": "",
+                "type": "query",
+                "description": "Return only CVE IDs instead of full objects"
+              },
+              {
+                "name": "bug",
+                "value": "",
+                "type": "query",
+                "description": "Filter by associated Bugzilla bug ID"
+              },
+              {
+                "name": "advisory",
+                "value": "",
+                "type": "query",
+                "description": "Filter by associated security advisory ID"
+              },
+              {
+                "name": "severity",
+                "value": "",
+                "type": "query",
+                "description": "Filter by severity level"
+              },
+              {
+                "name": "package",
+                "value": "",
+                "type": "query",
+                "description": "Filter by affected package name"
+              },
+              {
+                "name": "product",
+                "value": "",
+                "type": "query",
+                "description": "Filter by affected product name"
+              },
+              {
+                "name": "cvss_score",
+                "value": "",
+                "type": "query",
+                "description": "Minimum CVSS score"
+              },
+              {
+                "name": "cvss3_score",
+                "value": "",
+                "type": "query",
+                "description": "Minimum CVSS v3 score"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of CVEs affecting Red Hat products. Supports filtering by product, package, CVSS score range, severity, and date range. Results are paginated."
+        },
+        {
+          "info": {
+            "name": "Get CVE Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.redhat.com/labs/securitydataapi/cve/:CVE.json",
+            "params": [
+              {
+                "name": "CVE",
+                "value": "",
+                "type": "path",
+                "description": "The CVE identifier (e.g., CVE-2024-12345)"
+              }
+            ]
+          },
+          "docs": "Returns detailed information about a specific CVE including description, CVSS scores, affected packages, associated advisories, and remediation information for Red Hat products."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

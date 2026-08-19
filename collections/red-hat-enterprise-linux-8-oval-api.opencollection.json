@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Red Hat Security Data Advisories OVAL API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OVAL",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get OVAL Definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.redhat.com/labs/securitydataapi/oval/:product.xml",
+            "params": [
+              {
+                "name": "product",
+                "value": "",
+                "type": "path",
+                "description": "The product identifier (e.g., rhel8, rhel9)"
+              }
+            ]
+          },
+          "docs": "Returns OVAL XML definitions for vulnerability scanning of a specific product. OVAL definitions can be used with OpenSCAP and other OVAL scanners to assess vulnerability exposure on RHEL systems."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
