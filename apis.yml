@@ -202,6 +202,8 @@ apis:
   - type: Documentation
     url: https://console.redhat.com/docs/api/inventory
 common:
+  - type: Website
+    url: https://www.redhat.com/
   - type: MCPServer
     name: MCP Server for Red Hat Enterprise Linux
     url: https://github.com/rhel-lightspeed/linux-mcp-server
