@@ -125,16 +125,16 @@ apis:
     url: https://access.redhat.com/articles/2915291
   - type: Documentation
     url: https://console.redhat.com/docs/api/inventory
-- aid: red-hat-enterprise-linux-8:red-hat-enterprise-linux-8-cves-api
-  name: Red Hat Enterprise Linux 8 CVEs API
-  description: Common Vulnerabilities and Exposures data for Red Hat products
+- aid: red-hat-enterprise-linux-8:red-hat-enterprise-linux-8-oval-api
+  name: Red Hat Enterprise Linux 8 OVAL API
+  description: OVAL XML definitions for vulnerability scanning
   humanURL: https://access.redhat.com/management/api
   baseURL: https://api.access.redhat.com/management/v1
   tags:
-  - CVEs
+  - OVAL
   properties:
   - type: OpenAPI
-    url: openapi/red-hat-enterprise-linux-8-cves-api-openapi.yml
+    url: openapi/red-hat-enterprise-linux-8-oval-api-openapi.yml
   - type: Documentation
     url: https://access.redhat.com/management/api/rhsm
   - type: Authentication
@@ -163,16 +163,16 @@ apis:
     url: https://access.redhat.com/articles/2915291
   - type: Documentation
     url: https://console.redhat.com/docs/api/inventory
-- aid: red-hat-enterprise-linux-8:red-hat-enterprise-linux-8-oval-api
-  name: Red Hat Enterprise Linux 8 OVAL API
-  description: OVAL XML definitions for vulnerability scanning
-  humanURL: https://access.redhat.com/management/api
-  baseURL: https://api.access.redhat.com/management/v1
+- aid: red-hat-enterprise-linux-8:red-hat-enterprise-linux-8-cves-api
+  name: Red Hat Enterprise Linux 8 CV Es API
+  description: Common Vulnerabilities and Exposures data for Red Hat products
+  humanURL: https://cockpit-project.org/guide/latest/api-base1.html
+  baseURL: https://localhost:9090/cockpit
   tags:
-  - OVAL
+  - CVEs
   properties:
   - type: OpenAPI
-    url: openapi/red-hat-enterprise-linux-8-oval-api-openapi.yml
+    url: openapi/red-hat-enterprise-linux-8-cves-api-openapi.yml
   - type: Documentation
     url: https://access.redhat.com/management/api/rhsm
   - type: Authentication
