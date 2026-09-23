@@ -1,18 +1,27 @@
 {
   "provider": "red-hat-enterprise-linux-8",
   "sources": [
-    "red-hat-enterprise-linux-8-advisories-api-openapi.yml",
-    "red-hat-enterprise-linux-8-cves-api-openapi.yml",
-    "red-hat-enterprise-linux-8-oval-api-openapi.yml"
+    "_original/red-hat-enterprise-linux-8-security-data-openapi.yml"
   ],
   "outputs": [
     "red-hat-enterprise-linux-8-advisories-api-openapi.yml",
     "red-hat-enterprise-linux-8-cves-api-openapi.yml",
     "red-hat-enterprise-linux-8-oval-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "red-hat-enterprise-linux-8-security-data-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: red-hat-enterprise-linux-8-cv-es-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 5 total)"
+  ],
+  "skipped": [
+    "red-hat-enterprise-linux-8-advisories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "red-hat-enterprise-linux-8-cv-es-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "red-hat-enterprise-linux-8-oval-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
