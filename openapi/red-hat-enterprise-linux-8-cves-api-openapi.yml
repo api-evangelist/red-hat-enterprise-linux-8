@@ -125,34 +125,6 @@ paths:
           description: CVE not found
 components:
   schemas:
-    CveDetail:
-      allOf:
-      - $ref: '#/components/schemas/CveSummary'
-      - type: object
-        properties:
-          bugzilla_description:
-            type: string
-          details:
-            type: array
-            items:
-              type: string
-          acknowledgement:
-            type: string
-          affected_release:
-            type: array
-            items:
-              type: object
-              properties:
-                product_name:
-                  type: string
-                release_date:
-                  type: string
-                advisory:
-                  type: string
-                package:
-                  type: string
-                cpe:
-                  type: string
     CveSummary:
       type: object
       properties:
@@ -181,6 +153,34 @@ components:
         cwe:
           type: string
           description: CWE identifier
+    CveDetail:
+      allOf:
+      - $ref: '#/components/schemas/CveSummary'
+      - type: object
+        properties:
+          bugzilla_description:
+            type: string
+          details:
+            type: array
+            items:
+              type: string
+          acknowledgement:
+            type: string
+          affected_release:
+            type: array
+            items:
+              type: object
+              properties:
+                product_name:
+                  type: string
+                release_date:
+                  type: string
+                advisory:
+                  type: string
+                package:
+                  type: string
+                cpe:
+                  type: string
 externalDocs:
   description: Red Hat Security Data API Documentation
   url: https://access.redhat.com/documentation/en-us/red_hat_security_data_api/1.0

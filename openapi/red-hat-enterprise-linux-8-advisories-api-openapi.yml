@@ -112,30 +112,6 @@ paths:
           description: Advisory not found
 components:
   schemas:
-    AdvisoryDetail:
-      allOf:
-      - $ref: '#/components/schemas/AdvisorySummary'
-      - type: object
-        properties:
-          description:
-            type: string
-          solution:
-            type: string
-          references:
-            type: array
-            items:
-              type: string
-          packages:
-            type: array
-            items:
-              type: object
-              properties:
-                name:
-                  type: string
-                arch:
-                  type: string
-                filename:
-                  type: string
     AdvisorySummary:
       type: object
       properties:
@@ -162,6 +138,30 @@ components:
           type: array
           items:
             type: string
+    AdvisoryDetail:
+      allOf:
+      - $ref: '#/components/schemas/AdvisorySummary'
+      - type: object
+        properties:
+          description:
+            type: string
+          solution:
+            type: string
+          references:
+            type: array
+            items:
+              type: string
+          packages:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                arch:
+                  type: string
+                filename:
+                  type: string
 externalDocs:
   description: Red Hat Security Data API Documentation
   url: https://access.redhat.com/documentation/en-us/red_hat_security_data_api/1.0
