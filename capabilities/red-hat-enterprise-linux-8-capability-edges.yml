@@ -1,0 +1,43 @@
+slug: red-hat-enterprise-linux-8
+provider: Red Hat Enterprise Linux 8
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: CVEs
+  spec_file: red-hat-enterprise-linux-8-cves-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.9
+  evidence: '''query CVEs affecting RHEL products, retrieve CVSS scores''; GET /cve.json listCves'
+  reason: CVE and CVSS data retrieval is squarely vulnerability identification and remediation input.
+- tag: OVAL
+  spec_file: red-hat-enterprise-linux-8-oval-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.8
+  evidence: '''obtain OVAL XML data for vulnerability scanning integration''; GET /oval/{product}.xml
+    getOvalDefinitions'
+  reason: OVAL definitions are explicitly stated as feeding vulnerability scanning, i.e. vulnerability
+    management.
+- tag: Advisories
+  spec_file: red-hat-enterprise-linux-8-advisories-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.78
+  evidence: '''list security advisories (RHSA), bug fix advisories (RHBA)''; GET /advisory.json listAdvisories
+    ''List Security Advisories'''
+  reason: Security advisory feed consumed to identify patches needed for vulnerabilities — vulnerability/patch
+    management. Slight ambiguity since RHBA/RHEA advisories also cover non-security fixes.
