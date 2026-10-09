@@ -131,3 +131,59 @@ plans:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - negotiated
+  plans:
+  - name: Red Hat Enterprise Linux Server
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    periods:
+    - year
+  - name: Red Hat Enterprise Linux Workstation
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    periods:
+    - year
+  - name: Red Hat Enterprise Linux for Virtual Datacenters
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    periods:
+    - year
+  - name: Red Hat Enterprise Linux for SAP Solutions
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    periods:
+    - year
+  - name: Red Hat Enterprise Linux for IBM Power Little Endian
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    periods:
+    - year
+  - name: Custom / Volume
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - year
