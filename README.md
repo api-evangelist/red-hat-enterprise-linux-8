@@ -1,4 +1,4 @@
-# Red Hat Enterprise Linux 8 (red-hat-enterprise-linux-8)
+# Red Hat Enterprise Linux 8
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,271 +66,178 @@
 
 Red Hat Enterprise Linux 8 (RHEL 8) is an enterprise-grade Linux distribution that provides a stable, secure, and high-performance operating system platform for modern IT environments. RHEL 8 is managed and accessed programmatically through Red Hat's cloud console APIs, subscription management APIs, security data APIs, and system management interfaces including Insights, Image Builder, and Cockpit. These APIs enable automated provisioning, configuration, security scanning, patch management, and compliance reporting for RHEL deployments at scale.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/red-hat-enterprise-linux-8/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/red-hat-enterprise-linux-8/refs/heads/main/apis.yml)
+**Areas:** Enterprise · Linux · Operating System · Red Hat · RHEL
 
-## Scope
+## Red Hat Enterprise Linux 8 on APIs.io
 
-- **Type:** Index
+Everything profiled for Red Hat Enterprise Linux 8 is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/red-hat-enterprise-linux-8/](https://apis.io/providers/red-hat-enterprise-linux-8/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-- Enterprise
-- Linux
-- Operating System
-- Red Hat
-- RHEL
+- [RHEL 8 Cockpit Web Console API](https://apis.io/apis/red-hat-enterprise-linux-8/cockpit-api/) — Cockpit is a web-based system management interface for RHEL that exposes internal D-Bus and system APIs through a WebSocket-based transport. The Cockpit API…
+- [RHEL 8 System Roles API](https://apis.io/apis/red-hat-enterprise-linux-8/system-roles-api/) — RHEL System Roles are a collection of Ansible roles and modules for automating RHEL system configuration tasks including networking, storage, certificate…
+- [Red Hat Enterprise Linux 8 Advisories API](https://apis.io/apis/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-advisories-api/) — Red Hat security, bug fix, and enhancement advisories
+- [Red Hat Enterprise Linux 8 OVAL API](https://apis.io/apis/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-oval-api/) — OVAL XML definitions for vulnerability scanning
+- [Red Hat Enterprise Linux 8 CV Es API](https://apis.io/apis/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-cves-api/) — Common Vulnerabilities and Exposures data for Red Hat products
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### RHEL 8 Subscription Management API
+Model Context Protocol servers that expose the API to agents.
 
-The Red Hat Subscription Management (RHSM) API provides programmatic access to manage Red Hat subscriptions, entitlements, and system registrations. Operators can list, activate, and manage subscriptions, query available SKUs, register and unregister systems, and retrieve entitlement certificates. Authentication uses OAuth 2.0 tokens obtained via the Red Hat SSO service.
+- [MCP Server for Red Hat Enterprise Linux](https://apis.io/servers/red-hat-enterprise-linux-8/mcp-server-for-red-hat-enterprise-linux/)
 
-- **Human URL:** [https://access.redhat.com/management/api](https://access.redhat.com/management/api)
-- **Base URL:** `https://api.access.redhat.com/management/v1`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Entitlements
-- Registration
-- Subscriptions
-- System Management
+- [Red Hat Enterprise Linux 8 Agentic Access](https://apis.io/agentic-access/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-agentic-access/)
 
-#### Properties
+#### JSON Schema (5)
 
-- [Documentation](https://access.redhat.com/management/api/rhsm)
-- [OpenAPI](https://api.access.redhat.com/management/v1/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Authentication](https://access.redhat.com/articles/3626371)
-- [Postman Collection](collections/red-hat-enterprise-linux-8-security-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/red-hat-enterprise-linux-8-security-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The data models the API reads and writes.
 
-### RHEL 8 Insights API
+- [AdvisoryDetail](https://apis.io/schemas/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-advisorydetail/)
+- [AdvisorySummary](https://apis.io/schemas/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-advisorysummary/)
+- [Red Hat RHEL CVE](https://apis.io/schemas/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-cve/)
+- [CveDetail](https://apis.io/schemas/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-cvedetail/)
+- [CveSummary](https://apis.io/schemas/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-cvesummary/)
 
-Red Hat Insights is a predictive analytics service for RHEL systems that provides API access to vulnerability assessment, compliance reporting, patch management, drift analysis, and advisor recommendations. The Insights API allows automation of security scanning, patch prioritization, and system health monitoring for registered RHEL hosts. Authentication uses OAuth 2.0 tokens via the console.redhat.com identity service.
+#### JSON Structure (2)
 
-- **Human URL:** [https://console.redhat.com/docs/api/insights](https://console.redhat.com/docs/api/insights)
-- **Base URL:** `https://console.redhat.com/api/insights/v1`
+Data models expressed in JSON Structure.
 
-#### Tags
+- [Red Hat Enterprise Linux 8 Cve Structure](https://apis.io/json-structure/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-cve-structure/)
+- [Red Hat Enterprise Linux 8 Structure](https://apis.io/json-structure/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-structure/)
 
-- Analytics
-- Compliance
-- Monitoring
-- Predictive Analytics
-- Security
-- Vulnerabilities
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Documentation](https://console.redhat.com/docs/api/insights)
-- [OpenAPI](https://console.redhat.com/api/insights/v1/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Console](https://console.redhat.com/insights)
-- [Postman Collection](collections/red-hat-enterprise-linux-8-security-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/red-hat-enterprise-linux-8-security-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Red Hat Enterprise Linux 8 Context](https://apis.io/jsonld/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-context/)
 
-### RHEL 8 Image Builder API
+#### Vocabulary (1)
 
-The Red Hat Image Builder API enables automated creation of custom RHEL system images for cloud, virtual machine, and bare-metal deployments. Users can define image compositions, specify packages and customizations, build images for specific target environments (AWS, Azure, GCP, VMware, ISO), and download completed image artifacts. The API is part of the Red Hat Hybrid Cloud Console.
+The provider's domain terms, defined.
 
-- **Human URL:** [https://console.redhat.com/docs/api/image-builder](https://console.redhat.com/docs/api/image-builder)
-- **Base URL:** `https://console.redhat.com/api/image-builder/v1`
+- [Red Hat Enterprise Linux 8 Vocabulary](https://apis.io/vocabularies/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-vocabulary/)
 
-#### Tags
+#### Examples (2)
 
-- Cloud
-- Deployment
-- Image Builder
-- Infrastructure
-- Provisioning
+Example requests and responses.
 
-#### Properties
+- [Red Hat Enterprise Linux 8 Get Cve Example](https://apis.io/examples/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-get-cve-example/)
+- [Red Hat Enterprise Linux 8 List Advisories Example](https://apis.io/examples/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-list-advisories-example/)
 
-- [Documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/composing_a_customized_rhel_system_image/index)
-- [OpenAPI](https://console.redhat.com/api/image-builder/v1/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Tutorial](https://www.redhat.com/en/blog/using-red-hat-image-builder)
-- [Postman Collection](collections/red-hat-enterprise-linux-8-security-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/red-hat-enterprise-linux-8-security-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Collections (4)
 
-### RHEL 8 Patch Management API
+Postman and Open Collection request collections.
 
-The Red Hat Patch Management API (part of Red Hat Insights) provides endpoints for querying available errata, advisories, and CVE patches for registered RHEL systems. It enables operators to list applicable patches per system, filter by severity or type, and trigger patch installations. The API integrates with Satellite for on-premises patch orchestration.
+- [Red Hat Security Data Advisories API](https://apis.io/collections/red-hat-enterprise-linux-8/open-red-hat-enterprise-linux-8-advisories-api/)
+- [Red Hat Security Data Advisories CVEs API](https://apis.io/collections/red-hat-enterprise-linux-8/open-red-hat-enterprise-linux-8-cves-api/)
+- [Red Hat Security Data Advisories OVAL API](https://apis.io/collections/red-hat-enterprise-linux-8/open-red-hat-enterprise-linux-8-oval-api/)
+- [Red Hat Security Data API](https://apis.io/collections/red-hat-enterprise-linux-8/open-red-hat-enterprise-linux-8-security-data/)
 
-- **Human URL:** [https://console.redhat.com/docs/api/patch](https://console.redhat.com/docs/api/patch)
-- **Base URL:** `https://console.redhat.com/api/patch/v3`
+#### Governance rules (2)
 
-#### Tags
+Spectral rulesets for the provider's contracts.
 
-- Errata
-- Packages
-- Patch Management
-- Security
-- Updates
+- [Red Hat Enterprise Linux 8 — jsonschema rules](https://apis.io/rules/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-jsonschema-spectral-rules/)
+- [Red Hat Enterprise Linux 8 API Rules](https://apis.io/rules/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-rules/)
 
-#### Properties
+#### Security (3)
 
-- [Documentation](https://console.redhat.com/docs/api/patch)
-- [OpenAPI](https://console.redhat.com/api/patch/v3/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/red-hat-enterprise-linux-8-security-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/red-hat-enterprise-linux-8-security-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### RHEL 8 Vulnerability Management API
+- [Red Hat Enterprise Linux 8 Domain Security](https://apis.io/security/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-domain-security/)
+- [Red Hat Enterprise Linux 8 Trust Center](https://apis.io/security/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-trust-center/)
+- [Red Hat Enterprise Linux 8 Vulnerability Disclosure](https://apis.io/security/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-vulnerability-disclosure/)
 
-The Red Hat Vulnerability Management API (part of Insights) provides programmatic access to CVE vulnerability data for registered RHEL systems. Operators can query known CVEs affecting their hosts, retrieve severity scores, filter by system or CVE, and export vulnerability reports for compliance and risk management purposes.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://console.redhat.com/docs/api/vulnerability](https://console.redhat.com/docs/api/vulnerability)
-- **Base URL:** `https://console.redhat.com/api/vulnerability/v1`
+Published plans, tiers and prices.
 
-#### Tags
+- [Red Hat Enterprise Linux 8 Plans Pricing](https://apis.io/plans/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-plans-pricing/)
 
-- CVE
-- Risk Management
-- Security
-- Vulnerabilities
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://console.redhat.com/docs/api/vulnerability)
-- [OpenAPI](https://console.redhat.com/api/vulnerability/v1/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/red-hat-enterprise-linux-8-security-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/red-hat-enterprise-linux-8-security-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Red Hat Enterprise Linux 8 Rate Limits](https://apis.io/rate-limits/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-rate-limits/)
 
-### RHEL 8 Compliance API
+#### FinOps (1)
 
-The Red Hat Compliance API (part of Insights) enables automated compliance scanning and reporting against security profiles such as CIS, DISA STIG, and PCI-DSS for RHEL systems. Operators can list compliance policies, query system compliance scores, retrieve rule results, and download compliance reports in SCAP and PDF formats.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://console.redhat.com/docs/api/compliance](https://console.redhat.com/docs/api/compliance)
-- **Base URL:** `https://console.redhat.com/api/compliance/v2`
+- [Red Hat Enterprise Linux 8 Finops](https://apis.io/finops/red-hat-enterprise-linux-8/red-hat-enterprise-linux-8-finops/)
 
-#### Tags
+## Where to find this API
 
-- Compliance
-- SCAP
-- Security
-- STIG
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Properties
-
-- [Documentation](https://console.redhat.com/docs/api/compliance)
-- [OpenAPI](https://console.redhat.com/api/compliance/v2/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/red-hat-enterprise-linux-8-security-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/red-hat-enterprise-linux-8-security-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### RHEL 8 Security Data API
-
-The Red Hat Security Data API provides public access to Red Hat's security advisory and CVE data. Operators can query CVEs affecting RHEL products, retrieve CVSS scores, list security advisories (RHSA), bug fix advisories (RHBA), and enhancement advisories (RHEA), and obtain OVAL XML data for vulnerability scanning integration. No authentication is required for public data.
-
-- **Human URL:** [https://access.redhat.com/documentation/en-us/red_hat_security_data_api/1.0](https://access.redhat.com/documentation/en-us/red_hat_security_data_api/1.0)
-- **Base URL:** `https://access.redhat.com/labs/securitydataapi`
-
-#### Tags
-
-- Advisories
-- CVE
-- OVAL
-- Public Data
-- Security
-
-#### Properties
-
-- [Documentation](https://access.redhat.com/documentation/en-us/red_hat_security_data_api/1.0/html/red_hat_security_data_api/index)
-- [A P I  Endpoint](https://access.redhat.com/labs/securitydataapi/)
-- [Examples](https://access.redhat.com/articles/2915291)
-- [OpenAPI](openapi/red-hat-enterprise-linux-8-security-data-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/red-hat-enterprise-linux-8-security-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/red-hat-enterprise-linux-8-security-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### RHEL 8 Host Inventory API
-
-The Red Hat Insights Host Inventory API provides programmatic access to the inventory of RHEL systems registered with Red Hat Insights. Operators can query hosts by attributes, retrieve system facts, manage host groups, query system profiles, and track system metadata including OS version, hardware, and installed packages.
-
-- **Human URL:** [https://console.redhat.com/docs/api/inventory](https://console.redhat.com/docs/api/inventory)
-- **Base URL:** `https://console.redhat.com/api/inventory/v1`
-
-#### Tags
-
-- Asset Management
-- Inventory
-- System Management
-
-#### Properties
-
-- [Documentation](https://console.redhat.com/docs/api/inventory)
-- [OpenAPI](https://console.redhat.com/api/inventory/v1/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/red-hat-enterprise-linux-8-security-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/red-hat-enterprise-linux-8-security-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### RHEL 8 Cockpit Web Console API
-
-Cockpit is a web-based system management interface for RHEL that exposes internal D-Bus and system APIs through a WebSocket-based transport. The Cockpit API provides access to system configuration, storage management, network configuration, service management, user accounts, and system logs from a web browser. It operates locally on each managed system at port 9090.
-
-- **Human URL:** [https://cockpit-project.org/guide/latest/api-base1.html](https://cockpit-project.org/guide/latest/api-base1.html)
-- **Base URL:** `https://localhost:9090/cockpit`
-
-#### Tags
-
-- Management
-- System Administration
-- UI
-- Web Console
-
-#### Properties
-
-- [Documentation](https://cockpit-project.org/guide/latest/api-base1.html)
-- [Git Hub](https://github.com/cockpit-project/cockpit)
-- [Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_systems_using_the_rhel_8_web_console/index)
-- [Postman Collection](collections/red-hat-enterprise-linux-8-security-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/red-hat-enterprise-linux-8-security-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### RHEL 8 System Roles API
-
-RHEL System Roles are a collection of Ansible roles and modules for automating RHEL system configuration tasks including networking, storage, certificate management, SELinux, time sync, and firewall configuration. The roles expose a structured YAML-based API for declarative system state management through Ansible Automation Platform or standalone Ansible.
-
-- **Human URL:** [https://access.redhat.com/articles/3050101](https://access.redhat.com/articles/3050101)
-- **Base URL:** `https://console.redhat.com/ansible/automation-hub/`
-
-#### Tags
-
-- Ansible
-- Automation
-- Configuration Management
-- System Roles
-
-#### Properties
-
-- [Documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/administration_and_configuration_tasks_using_system_roles_in_rhel/index)
-- [Git Hub](https://github.com/linux-system-roles)
-- [Ansible  Galaxy](https://galaxy.ansible.com/linux-system-roles)
-- [Postman Collection](collections/red-hat-enterprise-linux-8-security-data.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/red-hat-enterprise-linux-8-security-data.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Portal](https://access.redhat.com/)
-- [Customer  Portal](https://console.redhat.com/)
+- [Website](https://www.redhat.com/)
 - [Documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/)
-- [Knowledge  Base](https://access.redhat.com/knowledgebase/)
 - [Support](https://access.redhat.com/support/)
-- [Downloads](https://access.redhat.com/downloads/)
 - [Blog](https://www.redhat.com/en/blog/channel/red-hat-enterprise-linux)
-- [Release Notes](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/8.0_release_notes/index)
 - [Security](https://access.redhat.com/security/)
-- [Training](https://www.redhat.com/en/services/training-and-certification)
-- [GitHub Organization](https://github.com/redhat-developer)
-- [Privacy Policy](https://www.redhat.com/en/about/privacy-policy)
-- [Terms of Service](https://www.redhat.com/en/about/agreements)
-- [OpenAPI](openapi/red-hat-enterprise-linux-8-security-data-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [J S O N L D Context](json-ld/red-hat-enterprise-linux-8-context.jsonld)
-- [JSON Schema](json-schema/red-hat-enterprise-linux-8-cve-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/red-hat-enterprise-linux-8-cve-structure.json)
-- [Spectral Ruleset](rules/red-hat-enterprise-linux-8-rules.yml)
-- [Vocabulary](vocabulary/red-hat-enterprise-linux-8-vocabulary.yml)
+- [Terms of service](https://www.redhat.com/en/about/agreements)
+- [Privacy policy](https://www.redhat.com/en/about/privacy-policy)
+- [GitHub](https://github.com/redhat-developer)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 45.6** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 56.7 |
+| Contract quality | 55.9 |
+| Contract governance | 27.3 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 39.3 |
+| Access clarity | 36.8 |
+
+**Agent readiness 30.4** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/red-hat-enterprise-linux-8/](https://apis.io/providers/red-hat-enterprise-linux-8/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Red Hat Enterprise Linux 8: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/red-hat-enterprise-linux-8/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
